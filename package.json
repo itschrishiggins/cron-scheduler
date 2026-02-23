@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+  "dev": "next dev",
+  "build": "cross-env GITHUB_PAGES=true next build",
+  "start": "next start",
+  "predeploy": "cross-env NODE_ENV=production GITHUB_PAGES=true next build",
+  "deploy": "gh-pages -d out"
   },
   "keywords": [],
   "author": "",
@@ -21,5 +23,10 @@
     "next": "^15.3.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
+  },
+  "homepage": "https://itschrishiggins.github.io/cron-scheduler",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "gh-pages": "^6.3.0"
   }
 }
